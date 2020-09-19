@@ -4,7 +4,7 @@ namespace PromoHunter.Domain.Entities
 {
     public class Comment : Entity
     {
-        public Comment(Guid user, Guid promotion, string text)
+        public Comment(string user, Guid promotion, string text)
         {
             User = user;
             Promotion = promotion;
@@ -13,7 +13,7 @@ namespace PromoHunter.Domain.Entities
             CreateDate = DateTime.Now;
         }
 
-        public Guid User { get; private set; }
+        public string User { get; private set; }
         public Guid Promotion { get; private set; }
         public int Likes { get; private set; }
         public string Text { get; private set; }

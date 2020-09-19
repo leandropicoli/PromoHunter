@@ -8,7 +8,7 @@ namespace PromoHunter.Domain.Entities
     {
         private readonly IList<Comment> _comments;
 
-        public Promotion(string name, string storeName, string promotionLink, IReadOnlyCollection<Comment> comments, Guid user)
+        public Promotion(string name, string storeName, string promotionLink, string user)
         {
             Name = name;
             StoreName = storeName;
@@ -26,7 +26,7 @@ namespace PromoHunter.Domain.Entities
         public int Likes { get; private set; }
         public IReadOnlyCollection<Comment> Comments => _comments.ToArray();
         public int Views { get; private set; }
-        public Guid User { get; private set; }
+        public string User { get; private set; }
         public DateTime CreateDate { get; private set; }
 
         public void UpdateLikes(int likes)

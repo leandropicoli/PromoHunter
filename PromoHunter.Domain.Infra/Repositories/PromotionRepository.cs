@@ -18,7 +18,6 @@ namespace PromoHunter.Domain.Infra.Repositories
 
         public IEnumerable<Promotion> GetPromotions(int page, int limit)
         {
-            //TODO: Change to queries
             return _context.Promotions
                 .AsNoTracking()
                 .Skip(page * limit)

@@ -8,11 +8,9 @@ namespace PromoHunter.Domain.Queries
 {
     public static class PromotionQueries
     {
-        public static Expression<Func<IEnumerable<Promotion>, IEnumerable<Promotion>>> GetAll(int page, int limit)
+        public static Expression<Func<Promotion, bool>> GetAllByStore(string storeName)
         {
-            return x => x.OrderBy(y => y.CreateDate)
-                .Skip(page * limit)
-                .Take(limit);
+            return x => x.StoreName == storeName;
         }
     }
 }

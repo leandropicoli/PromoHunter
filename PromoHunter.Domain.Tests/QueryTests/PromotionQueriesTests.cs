@@ -22,8 +22,20 @@ namespace PromoHunter.Domain.Tests.QueryTests
         [TestMethod]
         public void GivenAQuery_ShouldReturnPaginationCorrectly()
         {
-            // var result = _promotions.AsQueryable().Where(PromotionQueries.GetAll(1, 1));
-            Assert.Fail();
+            int page = 1;
+            int take = 1;
+
+            var result = _promotions.AsQueryable().Skip(page * take).Take(take).FirstOrDefault();
+
+            Assert.AreEqual("page 2", result.Name);
+        }
+
+        [TestMethod]
+        public void GivenAQuery_ShouldReturnAllPromotionsByStoreName()
+        {
+            var result = _promotions.AsQueryable().Where(PromotionQueries.GetAllByStore("amazon")).ToList();
+
+            Assert.AreEqual(3, result.Count);
         }
     }
 }

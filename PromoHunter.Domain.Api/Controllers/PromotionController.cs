@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using PromoHunter.Domain.Commands;
@@ -14,9 +15,18 @@ namespace PromoHunter.Domain.Api.Controllers
     {
         [Route("")]
         [HttpGet]
-        public IEnumerable<Promotion> GetPromotions(int page, int limit, [FromServices] IPromotionRepository repository)
+        public ActionResult<IEnumerable<Promotion>> GetPromotions(int page, int limit, [FromServices] IPromotionRepository repository)
         {
-            return repository.GetPromotions(page, limit);
+            try
+            {
+                limit = limit == 0 ? 10 : limit;
+                var promotions = repository.GetPromotions(page, limit);
+                return Ok(promotions);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
         }
 
         [Route("")]

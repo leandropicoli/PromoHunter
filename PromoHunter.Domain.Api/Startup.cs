@@ -32,8 +32,11 @@ namespace PromoHunter.Domain.Api
         {
             services.AddControllers();
 
-            services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
-
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
+            services.AddDbContext<DataContext>(
+                dbContextOptions => dbContextOptions
+                    .UseMySql(Configuration.GetConnectionString("connectionString"), serverVersion)
+            );
             services.AddTransient<IPromotionRepository, PromotionRepository>();
             services.AddTransient<PromotionHandler, PromotionHandler>();
         }

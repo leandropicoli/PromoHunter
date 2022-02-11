@@ -3,6 +3,12 @@
     <ProjectReference Include="..\PromoHunter.Domain\PromoHunter.Domain.csproj" />
     <ProjectReference Include="..\PromoHunter.Domain.Infra\PromoHunter.Domain.Infra.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>

@@ -3,9 +3,6 @@
     <ProjectReference Include="..\PromoHunter.Domain\PromoHunter.Domain.csproj" />
     <ProjectReference Include="..\PromoHunter.Domain.Infra\PromoHunter.Domain.Infra.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.8" />
-  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>

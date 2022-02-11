@@ -32,7 +32,7 @@ namespace PromoHunter.Domain.Api
         {
             services.AddControllers();
 
-            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+            services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
 
             services.AddTransient<IPromotionRepository, PromotionRepository>();
             services.AddTransient<PromotionHandler, PromotionHandler>();

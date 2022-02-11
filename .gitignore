@@ -352,3 +352,5 @@ MigrationBackup/
 appsettings.json
 appsettings.Development.json
 .vscode
+
+.idea

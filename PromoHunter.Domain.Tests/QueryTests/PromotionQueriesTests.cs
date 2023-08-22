@@ -14,9 +14,9 @@ namespace PromoHunter.Domain.Tests.QueryTests
         public PromotionQueriesTests()
         {
             _promotions = new List<Promotion>();
-            _promotions.Add(new Promotion("page 1", "amazon", "http://link.com/promo", "leandropicoli"));
-            _promotions.Add(new Promotion("page 2", "amazon", "http://link.com/promo", "leandropicoli"));
-            _promotions.Add(new Promotion("page 3", "amazon", "http://link.com/promo", "leandropicoli"));
+            _promotions.Add(new Promotion("page 1", "amazon", "http://link.com/promo","http://link.com/image", "leandropicoli"));
+            _promotions.Add(new Promotion("page 2", "amazon", "http://link.com/promo","http://link.com/image", "leandropicoli"));
+            _promotions.Add(new Promotion("page 3", "amazon", "http://link.com/promo","http://link.com/image", "leandropicoli"));
         }
 
         [TestMethod]

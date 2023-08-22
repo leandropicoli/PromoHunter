@@ -12,7 +12,7 @@ namespace PromoHunter.Domain.Tests.EntitiesTests
         [TestInitialize]
         public void Setup()
         {
-            _promotion = new Promotion("Promotion", "Amazon", "https://www.amazon.com", "usertest123");
+            _promotion = new Promotion("Promotion", "Amazon", "https://www.amazon.com", "https://www.image.com", "usertest123");
         }
 
         [TestMethod]

@@ -26,7 +26,7 @@ namespace PromoHunter.Domain.Handlers
             if (command.Invalid)
                 return new GenericCommandResult(false, "Error, there's something wrong in this promotion", command.Notifications);
 
-            var promotion = new Promotion(command.Name, command.StoreName, command.PromotionLink, command.User);
+            var promotion = new Promotion(command.Name, command.StoreName, command.Url, command.ImageUrl, command.User);
             _repository.SavePromotion(promotion);
 
 

@@ -8,17 +8,18 @@ using PromoHunter.Domain.Infra.Contexts;
 
 #nullable disable
 
-namespace PromoHunter.Domain.Infra.Migrations
+namespace PromoHunter.Domain.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220211010352_Initial")]
-    partial class Initial
+    [Migration("20230822191634_AddImageUrl_ChangePromotionName")]
+    partial class AddImageUrl_ChangePromotionName
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.2")
+                .HasAnnotation("ProductVersion", "7.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("PromoHunter.Domain.Entities.Comment", b =>
@@ -64,16 +65,19 @@ namespace PromoHunter.Domain.Infra.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("longtext");
+
                     b.Property<int>("Likes")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("PromotionLink")
+                    b.Property<string>("StoreName")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("StoreName")
+                    b.Property<string>("Url")
                         .HasColumnType("longtext");
 
                     b.Property<string>("User")

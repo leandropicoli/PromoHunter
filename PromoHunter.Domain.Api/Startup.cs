@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -35,7 +36,7 @@ namespace PromoHunter.Domain.Api
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
             services.AddDbContext<DataContext>(
                 dbContextOptions => dbContextOptions
-                    .UseMySql(Configuration.GetConnectionString("connectionString"), serverVersion)
+                    .UseMySql(Configuration.GetConnectionString("connectionString"), serverVersion, b=> b.MigrationsAssembly("PromoHunter.Domain.Api"))
             );
             services.AddTransient<IPromotionRepository, PromotionRepository>();
             services.AddTransient<PromotionHandler, PromotionHandler>();

@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace PromoHunter.Domain.Infra.Migrations
+namespace PromoHunter.Domain.Api.Migrations
 {
-    public partial class Initial : Migration
+    /// <inheritdoc />
+    public partial class AddImageUrl_ChangePromotionName : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterDatabase()
@@ -21,7 +23,9 @@ namespace PromoHunter.Domain.Infra.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     StoreName = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    PromotionLink = table.Column<string>(type: "longtext", nullable: true)
+                    Url = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ImageUrl = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Likes = table.Column<int>(type: "int", nullable: false),
                     CommentsCount = table.Column<int>(type: "int", nullable: false),
@@ -67,6 +71,7 @@ namespace PromoHunter.Domain.Infra.Migrations
                 column: "PromotionId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

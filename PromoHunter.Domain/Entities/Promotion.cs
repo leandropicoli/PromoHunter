@@ -8,11 +8,11 @@ namespace PromoHunter.Domain.Entities
     {
         private readonly IList<Comment> _comments;
 
-        public Promotion(string name, string storeName, string link, string imageUrl, string user)
+        public Promotion(string name, string storeName, string url, string imageUrl, string user)
         {
             Name = name;
             StoreName = storeName;
-            Url = link;
+            Url = url;
             ImageUrl = imageUrl;
             Likes = 0;
             _comments = new List<Comment>();

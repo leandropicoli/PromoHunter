@@ -5,7 +5,7 @@ namespace PromoHunter.Domain.Infra.Contexts
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options)
+        public DataContext(DbContextOptions options)
             : base(options)
         {
         }
